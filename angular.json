@@ -32,6 +32,9 @@
               }
             ],
             "styles": [
+              {
+                "input": "src/global.scss"
+              }
             ],
             "scripts": [
               {

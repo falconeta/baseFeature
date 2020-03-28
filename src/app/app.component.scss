@@ -1,2 +1,6 @@
-@import "./../global.scss";
+// @import "./../global.scss";
 @import "./../theme/variables.scss";
+
+.router-outlet {
+  height: 100vh;
+}

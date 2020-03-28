@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 
-import { HomePage } from './home.page';
+import { AboutPage } from './about.page';
 import { createCustomElement } from '@angular/elements';
 
 @NgModule({
@@ -12,14 +12,13 @@ import { createCustomElement } from '@angular/elements';
     FormsModule,
     IonicModule,
   ],
-  entryComponents:[HomePage],
-  declarations: [HomePage],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  entryComponents:[AboutPage],
+  declarations: [AboutPage]
 })
-export class HomePageModule {
+export class AboutPageModule {
   constructor(private injector: Injector) {
-    const component = (createCustomElement(HomePage, { injector: this.injector }) as any);
-    customElements.define('home-page', component);
+    const component = (createCustomElement(AboutPage, { injector: this.injector }) as any);
+    customElements.define('about-page', component);
   }
   ngDoBootstrap() {
     
