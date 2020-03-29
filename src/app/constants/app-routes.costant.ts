@@ -16,7 +16,7 @@ export const APP_ROUTES: IRoute[] = [
   {
     route:
     {
-      path: '/', redirect: 'home-page'
+      path: '(.*)', redirect: NavigationPages.HomePage
     }
   }
 ]
