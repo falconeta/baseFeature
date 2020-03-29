@@ -1,4 +1,4 @@
-import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA, NgModuleFactoryLoader, SystemJsNgModuleLoader } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,15 +8,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { HomePageModule } from './home/home.module';
-import { AboutPageModule } from './about/about.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), HomePageModule, AboutPageModule],
+  imports: [BrowserModule, IonicModule.forRoot()],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader },
     StatusBar,
     SplashScreen
   ],

@@ -3,7 +3,9 @@ import { Component, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } fr
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import {Router} from '@vaadin/router';
+import { NavigationService } from './services/navigation.service';
+import { APP_ROUTES } from './constants';
+import { NavigationPages } from './enums';
 
 @Component({
   selector: 'app-root',
@@ -12,26 +14,22 @@ import {Router} from '@vaadin/router';
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('outlet', { static: true }) routerOutletElement: ElementRef;
-  private routerOutlet: Router;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private navigationService: NavigationService
   ) {
     this.initializeApp();
   }
 
-  ngAfterViewInit(): void {
-    this.routerOutlet = new Router(this.routerOutletElement.nativeElement);
+  async ngAfterViewInit() {
+    await this.navigationService.initRoutes(APP_ROUTES, this.routerOutletElement.nativeElement);
+    this.navigationService.setRoot(NavigationPages.HomePage);
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.routerOutlet.setRoutes([
-        {path: '/', component: 'home-page'},
-        {path: '/about', component: 'about-page'}
-      ]);
-
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

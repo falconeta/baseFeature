@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { NavigationService } from '../services/navigation.service';
+import { NavigationPages } from '../enums';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +10,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AboutPage {
 
-  constructor() { }
+  constructor(
+    private navigationService: NavigationService
+  ) { }
 
+  goToHome() {
+    this.navigationService.setRoot(NavigationPages.HomePage);
+  }
 }

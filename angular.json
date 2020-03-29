@@ -22,6 +22,10 @@
             "customWebpackConfig": {
               "path": "./custom-webpack.config.js"
             },
+            "lazyModules": [
+              "src/app/home/home.module",
+              "src/app/about/about.module"
+            ],
             "assets": [
               {
                 "glob": "**/*",
