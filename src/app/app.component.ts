@@ -10,7 +10,8 @@ import { NavigationPages } from './enums';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  styleUrls: ['app.component.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('outlet', { static: true }) routerOutletElement: ElementRef;
