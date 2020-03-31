@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { APP_BASE_HREF } from '@angular/common';
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: NgModuleFactoryLoader, useClass: SystemJsNgModuleLoader },
     StatusBar,
-    SplashScreen
+    SplashScreen,
+    Camera
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
