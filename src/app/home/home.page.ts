@@ -19,6 +19,7 @@ export class HomePage {
   }
 
   private options: CameraOptions = {
+    sourceType: 0,
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
@@ -32,6 +33,7 @@ export class HomePage {
       let base64Image = 'data:image/jpeg;base64,' + imageData;
       console.log(base64Image);
     }, (err) => {
+      console.log(err);
       // Handle error
     });
   }
